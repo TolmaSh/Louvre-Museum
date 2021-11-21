@@ -1,0 +1,44 @@
+//header
+.header {
+	&__wrapper {
+		display: flex;
+		justify-content: space-between;
+		@include media(max,xxl) {
+			align-items: center;
+			height: 150px;
+		}
+	}
+	&__logo {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 25px;
+		line-height: 150px;
+		@include media(max,xxl) {
+			z-index: 30;
+			margin-top: 16px;
+		}
+		&:hover {
+			color:var(--gold);
+			svg {
+				fill:var(--gold);
+			}
+		}
+	}
+	&__img {
+		width: 49px;
+		height: 26px;
+		fill: #ffffff;
+		transition: fill 0.3s ease 0s;
+
+	}
+	&__title {
+		font-family: Forum;
+		font-size: 28px;
+		font-weight: 400;
+		letter-spacing: 5px;
+		text-transform: uppercase;
+		transition: color 0.3s ease 0s;
+
+	}
+}

@@ -1,0 +1,23 @@
+.nav {
+	&__list {
+		display: flex;
+		gap: 55px;
+		@include font(22px,150px,200);
+		letter-spacing: 2px;
+		@include media(max,xxl) {
+			flex-direction: column;
+			align-items: flex-start;
+			@include font(20px,24px,300);
+			margin-top: 85px;
+			gap: 25px;
+		}
+	}
+	&__item {
+		transition: color 0.3s ease 0s;
+		a {
+			&:hover {
+				color:var(--gold);
+			}
+		}
+	}
+}

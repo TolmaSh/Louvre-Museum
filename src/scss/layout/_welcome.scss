@@ -1,0 +1,110 @@
+.welcome {
+	min-height: 810px;
+		@include media(max,xl) {
+			min-height: 585px;
+		}
+		@include media(max,md) {
+			padding-bottom: 30px;
+			min-height: inherit;
+		}
+		@include media(max,xs) {
+			padding-bottom: 80px;
+		}
+	&__wrapper {
+		display: flex;
+		position: relative;
+		@include media(max,md) {
+			flex-direction: column;
+			align-items: center;
+		}
+	}
+	&__content {
+		z-index: 10;
+		margin-top: 150px;
+		@include media(max,xl) {
+			margin-top: 47px;
+		}
+		@include media(max,md) {
+			margin-top: 0;
+		}
+		@include media(max,xs) {
+			margin-top: 5px;
+		}
+		h1 {
+			line-height: 0;
+			@include media(max,md) {
+				text-align: center;
+			}
+		}
+	}
+	&__title {
+		max-width: 660px;
+		display: block;
+		line-height: 90px;
+		@include media(max,md) {
+			line-height: 60px;
+		}
+		@include media(max,xs) {
+			line-height: 40px;
+		}
+		span {
+			display: block;
+			@include media(max,xs) {
+				transform: translateX(-4px);
+			}
+		}
+	}
+	&__subtitle {
+		display: inline-block;
+		margin-top: 25px;
+		@include font(28px,33px,300);
+		text-transform: none;
+		font-family: Roboto;
+		letter-spacing: 2px;
+		@include media(max,xl) {
+			@include font(24px,28px);
+		}
+		@include media(max,md) {
+			@include font(20px,24px);
+		}
+		@include media(max,xs) {
+			@include font(16px,19px);
+		}
+	}
+	&__link {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 75px;
+		width: 360px;
+		height: 75px;
+		background: var(--dark-red);
+		border-radius: 10px;
+		@include font(22px,26px,300);
+		text-align: center;
+		letter-spacing: 2px;
+		transition: background 0.3s ease 0s;
+		@include media(max,xl) {
+			width: 300px;
+			height: 60px;
+			margin-top: 50px;
+			@include font(20px,24px);
+		}
+		@include media(max,md) {
+		position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    white-space: nowrap;
+    -webkit-clip-path: inset(100%);
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+		}
+		&:hover {
+			background: var(--gold);
+		}
+	}
+}

@@ -1,0 +1,123 @@
+.visiting {
+	background-color: var(--bg-light);
+	color:var(--bg-dark);;
+	padding: 75px 0;
+	@include media(max,xl) {
+		padding: 60px 0;
+	}
+	@include media(max,md) {
+		padding-top: 40px;
+		padding-bottom: 80px;
+	}
+	@include media(max,xs) {
+		padding: 40px 0;
+	}
+	&__card {
+		display: grid;
+		grid-template-columns: repeat(3,440px);
+		justify-content: space-between;
+		row-gap: 75px;
+		margin-top: 75px;
+		@include media(max,xxl) {
+			grid-template-columns: repeat(2,440px);
+			justify-content: center;
+			column-gap: 108px;
+		}
+		@include media(max, xl) {
+			grid-template-columns: repeat(2,330px);
+			justify-content: center;
+			row-gap: 60px;
+			margin-top: 60px;
+		}
+		@include media(max, md) {
+			grid-template-columns: repeat(2,280px);
+			column-gap: 56px;
+			row-gap: 40px;
+			margin-top: 40px;
+		}
+		@include media(max,xs) {
+			grid-template-columns: 280px;
+		}
+		&-item {
+			display: flex;
+			flex-direction: column;
+			&:hover {
+				h3 {
+					&:after {
+						width: 100%;
+					}
+				}
+			}
+		}
+		&-img {
+			width: 440px;
+			height: 285px;
+			@include media(max,xl) {
+				width: 330px;
+				height: 215px;
+			}
+			@include media(max,md) {
+				width: 280px;
+				height: 180px;
+			}
+		}
+		&-description {
+			margin-top: 25px;
+			display: flex;
+			flex-direction: column;
+			gap:10px;
+		}
+		&-title {
+			@include font(32px,35px,400);
+			text-transform: uppercase;
+			letter-spacing: 5px;
+			font-family: Forum;
+			@include media(max,xl) {
+				@include font(28px,30px);
+				letter-spacing: 3px;
+			}
+			@include media(max,md) {
+				@include font(22px,24px);
+			}
+			@include media(max,xs) {
+				@include font(18px,20px);
+				letter-spacing: 5px;
+			}
+
+			&::after {
+				content: "";
+				display: block;
+				margin-top: 10px;
+				width: 68%;
+				background: var(--dark-red);
+				height: 2px;
+				transition: width 0.3s ease 0s;
+				@include media(max,xl) {
+					width: 46%;
+				}
+				@include media(max,md) {
+					width: 53%;
+				}
+			}
+		}
+
+		&-type {
+			@include font(22px,26px,200);
+				@include media(max,xl) {
+					@include font(20px,24px);
+				}
+				@include media(max,md) {
+					@include font(18px,21px);
+				}
+				@include media(max,xs) {
+					@include font(16px,19px);
+				}
+		}
+		&-source {
+			@include font(18px,21px,200);
+				@include media(max,xl) {
+					@include font(16px,19px);
+				}
+		}
+	}
+}

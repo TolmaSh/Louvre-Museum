@@ -1,0 +1,11 @@
+html {
+	scroll-behavior: smooth;
+}
+.container {
+   max-width: 1440px;
+   margin: 0 auto;
+
+   @include media(max,xxl) {
+      padding: 0 20px;
+   }
+}

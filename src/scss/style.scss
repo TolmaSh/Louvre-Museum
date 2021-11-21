@@ -1,0 +1,59 @@
+// -variable- //
+
+
+@import 'abstracts/variable/variable';
+
+// -mixins- //
+@import 'abstracts/mixins/mixins';
+
+// -base- //
+@import 'base/fonts';
+@import 'base/nullstyle';
+
+body {
+	font-family: Roboto;
+	background-color: var(--bg-dark);
+	color: #ffffff;
+}
+@import '../../node_modules/swiper/swiper-bundle.css';
+.swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+	width: initial;
+}
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{
+	margin: 0;
+}
+.swiper-pagination-bullet {
+	width: 16px;
+	height: 16px;
+	background-color: #fff;
+	border-radius: 0;
+	opacity: 1;
+	transition: background 0.3s ease 0s;
+	@include media(max,xl) {
+		width: 12px;
+		height: 12px;
+	}
+	@include media(max,xs) {
+		width: 7px;
+		height: 7px;
+	}
+	&-active {
+		background-color: var(--active-welcomeDot);
+	}
+	&:hover {
+		background-color: var(--gold);
+	}
+}
+// -components- //
+@import 'components/*.scss';
+
+// -layout- //
+@import 'layout/header';
+@import	'layout/welcome';
+@import	'layout/visiting';
+@import 'layout/explore';
+@import 'layout/video';
+@import 'layout/gallery';
+@import 'layout/tickets';
+@import 'layout/contacts';
+@import 'layout/footer';

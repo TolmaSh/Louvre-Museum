@@ -1,0 +1,21 @@
+$grid_breakpoints: (
+   xxl: 1439px,
+   xl: 1024px,
+   lg: 991px,
+   md: 768px,
+   sm: 575px,
+   xs: 420px,
+);
+
+$font_family: "font-family", cursive;
+$font_family_secondary: "font-family", cursive;
+$min_width: 320px;
+
+:root {
+	--bg-dark: #030303;
+	--bg-light: #ffffff;
+	--dark-red: #710707;
+	--gold: #9d8665;
+	--active-videoDot: #333333;
+	--active-welcomeDot: #d2b183;
+}
