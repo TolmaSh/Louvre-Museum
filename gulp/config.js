@@ -1,6 +1,6 @@
 const srcPath = 'src';
 const destPath = 'museum';
-const deploy = 'deploy'
+const deploy = 'deploy';
 
 const config = {
 
@@ -60,19 +60,19 @@ const config = {
    },
 
    projectName(projectName) {
-      this.name = projectName
+      this.name = projectName;
    },
 
    concatJs(path) {
-      this.concat = path
+      this.concat = path;
    },
 
    addWoff(woff) {
-      this.isWoff = woff
+      this.isWoff = woff;
    },
 
    addWebp(webp) {
-      this.isWebp = webp
+      this.isWebp = webp;
    }
 
 };

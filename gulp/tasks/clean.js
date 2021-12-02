@@ -3,7 +3,7 @@ import config from '../config';
 
 const clean = () => {
 
-   return del(config.build.root)
+   return del(config.build.root);
 
 }
 

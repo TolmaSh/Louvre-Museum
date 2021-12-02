@@ -47,12 +47,18 @@ function initComparisons() {
     function slideMove(e) {
       var pos;
       /*if the slider is no longer clicked, exit this function:*/
-      if (clicked == 0) return false;
+      if (clicked == 0) {
+				return false;
+			}
       /*get the cursor's x position:*/
-      pos = getCursorPos(e)
+      pos = getCursorPos(e);
       /*prevent the slider from being positioned outside the image:*/
-      if (pos < 0) pos = 0;
-      if (pos > w) pos = w;
+      if (pos < 0) {
+				pos = 0;
+			}
+      if (pos > w) {
+				pos = w;
+			}
       /*execute a function that will resize the overlay image according to the cursor:*/
       slide(pos);
     }

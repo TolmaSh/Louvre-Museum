@@ -40,6 +40,7 @@ function randomPic() {
 	let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 	shuffle(arr);
 }
+
 randomPic();
 
 // WELCOME SLIDER
@@ -77,12 +78,13 @@ const animItems = document.querySelectorAll(".gallery__item");
 
 if (animItems.length > 0) {
 	window.addEventListener("scroll", animOnScroll);
+
 	function animOnScroll() {
 		for (let index = 0; index < animItems.length; index++) {
-			const animItem = animItems[index];
-			const animItemHeight = animItem.offsetHeight;
-			const animItemOffset = offset(animItem).top;
-			const animStart = 100;
+			const animItem = animItems[index],
+				animItemHeight = animItem.offsetHeight,
+				animItemOffset = offset(animItem).top,
+				animStart = 100;
 
 			let animItemPoint = window.innerHeight - animItemHeight / animStart;
 			if (animItemHeight > window.innerHeight) {
@@ -101,11 +103,12 @@ if (animItems.length > 0) {
 			}
 		}
 	}
+
 	function offset(el) {
 		const rect = el.getBoundingClientRect(),
 			scrollLeft = window.pageXOffset || document.documentElement.scrollLeft,
 			scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-		return { top: rect.top + scrollTop, left: rect.left + scrollLeft };
+		return {top: rect.top + scrollTop, left: rect.left + scrollLeft};
 	}
 
 	setTimeout(() => {
@@ -118,157 +121,235 @@ if (animItems.length > 0) {
 // MAPBOX
 mapboxgl.accessToken = 'pk.eyJ1IjoidG9sbWFzaCIsImEiOiJja3VtbXI5aHcwbDloMm9wZm10cmkydDd0In0.n743r7IHY3MoYMPfRsXKQw';
 const map = new mapboxgl.Map({
-container: 'map', // container ID
-style: "mapbox://styles/mapbox/light-v10",
-center: [2.3364, 48.86091],
-zoom: 16,
-attributionControl: !1
+	container: 'map', // container ID
+	style: "mapbox://styles/mapbox/light-v10",
+	center: [2.3364, 48.86091],
+	zoom: 16,
+	attributionControl: !1
 });
 map.addControl(new (mapboxgl.NavigationControl)),
-map.addControl(new (mapboxgl.AttributionControl)({
-            customAttribution: 'Map design by <a href="https://tolmash.github.io/rsschool-cv/" target="_blank" role="listitem">TolmaSh</a>'
-        })),
-        new (mapboxgl.Marker)({
-            color: "black"
-        }).setLngLat([2.3364, 48.86091]).addTo(map),
-        new (mapboxgl.Marker)({
-            color: "gray"
-        }).setLngLat([2.3333, 48.8602]).addTo(map),
-        new (mapboxgl.Marker)({
-            color: "gray"
-        }).setLngLat([2.3397, 48.8607]).addTo(map),
-        new (mapboxgl.Marker)({
-            color: "gray"
-        }).setLngLat([2.333, 48.8619]).addTo(map),
-        new (mapboxgl.Marker)({
-            color: "gray"
-        }).setLngLat([2.3365, 48.8625]).addTo(map)
+	map.addControl(new (mapboxgl.AttributionControl)({
+		customAttribution:
+			'Map design by <a href="https://tolmash.github.io/rsschool-cv/" target="_blank" role="listitem">TolmaSh</a>'
+	})),
+	new (mapboxgl.Marker)({
+		color: "black"
+	}).setLngLat([2.3364, 48.86091]).addTo(map),
+	new (mapboxgl.Marker)({
+		color: "gray"
+	}).setLngLat([2.3333, 48.8602]).addTo(map),
+	new (mapboxgl.Marker)({
+		color: "gray"
+	}).setLngLat([2.3397, 48.8607]).addTo(map),
+	new (mapboxgl.Marker)({
+		color: "gray"
+	}).setLngLat([2.333, 48.8619]).addTo(map),
+	new (mapboxgl.Marker)({
+		color: "gray"
+	}).setLngLat([2.3365, 48.8625]).addTo(map);
 
-	// END MAPBOX
+// END MAPBOX
 
-	// Counter
-	const inputBasic = document.querySelector('.input-price-basic');
-	const inputSenior = document.querySelector('.input-price-senior');
-	// const totalPrice = document.querySelector('.total-price');
-	const basicAmountWrapper = document.querySelector('.basic__ammount-wrapper');
-	const seniorAmountWrapper = document.querySelector('.senior__ammount-wrapper');
-	const permanentType = document.querySelector('.tickets__permanent');
-	const temporaryType = document.querySelector('.tickets__temporary');
-	const combinedType = document.querySelector('.tickets__combined');
-	const radioBtns = document.querySelectorAll('input[name = "ticketType"]');
-	console.log(radioBtns);
+// Counter
+const inputBasic = document.querySelector('.input-price-basic'),
+	inputSenior = document.querySelector('.input-price-senior'),
+	basicAmountWrapper = document.querySelector('.basic__ammount-wrapper'),
+	seniorAmountWrapper = document.querySelector('.senior__ammount-wrapper'),
+	permanentType = document.querySelector('.tickets__permanent'),
+	temporaryType = document.querySelector('.tickets__temporary'),
+	combinedType = document.querySelector('.tickets__combined'),
+	totalPrice = document.querySelector('.total-prices'),
+	radioBtns = document.querySelectorAll('input[name = "ticketType"]');
+
+// let total;
+//
+// basicAmountWrapper.addEventListener("click", (event) => {
+// 	if (event.target && event.target.classList.contains('tickets__form-plus')) {
+// 			if (permanentType.checked) {
+// 				inputBasic.value++;
+// 				console.log(typeof inputBasic.value);
+// 				total = `${+inputBasic.value * 20}`;
+// 				console.log(total);
+// 				totalPrice.innerHTML = total;
+//
+// 			}
+// 			if (temporaryType.checked) {
+// 				inputBasic.value++;
+// 				total = `${+inputBasic.value * 25}`;
+// 				totalPrice.innerHTML = total;
+// 			}
+// 			if (combinedType.checked) {
+// 				inputBasic.value++;
+// 				total = `${+inputBasic.value * 40}`;
+// 				totalPrice.innerHTML = total;
+// 			}
+// 	}
+// 	if (event.target && event.target.classList.contains('tickets__form-minus')) {
+// 		if (permanentType.checked && inputBasic.value !== "0") {
+// 			inputBasic.value--;
+// 			total = `${+totalPrice.innerHTML - 20}`;
+// 			totalPrice.innerHTML = total;
+// 		}
+// 		if (temporaryType.checked && inputBasic.value !== "0") {
+// 			inputBasic.value--;
+// 			total = `${+totalPrice.innerHTML - 25}`;
+// 			totalPrice.innerHTML = total;
+// 		}
+// 		if (combinedType.checked && inputBasic.value !== "0") {
+// 			inputBasic.value--;
+// 			total = `${+totalPrice.innerHTML - 40}`;
+// 			totalPrice.innerHTML = total;
+// 		}
+// 	}
+// });
+//
+// seniorAmountWrapper.addEventListener("click", (event) => {
+// 	if (event.target && event.target.classList.contains('tickets__form-plus')) {
+// 		if (permanentType.checked) {
+// 			inputSenior.value++;
+// 			console.log(typeof inputSenior.value);
+// 			totalPrice.innerHTML = `${+inputSenior.value * 10}`;
+// 		}
+// 		if (temporaryType.checked) {
+// 			inputSenior.value++;
+// 			totalPrice.innerHTML = `${+inputSenior.value * 12.5}`;
+// 		}
+// 		if (combinedType.checked) {
+// 			inputSenior.value++;
+// 			totalPrice.innerHTML = `${+inputSenior.value * 20}`;
+// 		}
+// 	}
+// 	if (event.target && event.target.classList.contains('tickets__form-minus')) {
+// 		if (permanentType.checked && inputSenior.value !== "0") {
+// 			inputSenior.value--;
+// 			totalPrice.innerHTML = `${+totalPrice.innerHTML - 10}`;
+// 		}
+// 		if (temporaryType.checked && inputSenior.value !== "0") {
+// 			inputSenior.value--;
+// 			totalPrice.innerHTML = `${+totalPrice.innerHTML - 12.5}`;
+// 		}
+// 		if (combinedType.checked && inputSenior.value !== "0") {
+// 			inputSenior.value--;
+// 			totalPrice.innerHTML = `${+totalPrice.innerHTML - 20}`;
+// 		}
+// 	}
+// });
+
+basicAmountWrapper.addEventListener('click', changeBasicValue);
+seniorAmountWrapper.addEventListener('click', changeSeniorValue);
 
 
-	basicAmountWrapper.addEventListener('click', changeBasicValue);
-	seniorAmountWrapper.addEventListener('click', changeSeniorValue);
+function changeBasicValue(event) {
 
-	function changeBasicValue(event) {
+	let target = event.target,
+			currentPrice,
+			newPrice;
+	const currentInputValue = Number(inputBasic.value);
 
-		let target = event.target;
-		const totalPrice = document.querySelector('.total-prices');
-		const currentInputValue = Number(inputBasic.value);
 
-		if (target.classList.contains('tickets__form-plus')) {
-			// BASIC PLUS ON PERMANENT CHECKBOX
-			if ( currentInputValue < 20 && permanentType.checked ) {
-				inputBasic.value = currentInputValue + 1;
-				const currentPrice = Number(totalPrice.innerHTML);
-			const newPrice = currentPrice + 20;
-			totalPrice.innerHTML = newPrice;
-			}
-			// BASIC PLUS ON TEMPORARY CHECKBOX
-			if ( currentInputValue < 20 && temporaryType.checked ) {
-				inputBasic.value = currentInputValue + 1;
-				const currentPrice = Number(totalPrice.innerHTML);
-			const newPrice = currentPrice + 25;
-			totalPrice.innerHTML = newPrice;
-			}
-			// BASIC PLUS ON COMBINED CHECKBOX
-			if ( currentInputValue < 20 && combinedType.checked ) {
-				inputBasic.value = currentInputValue + 1;
-				const currentPrice = Number(totalPrice.innerHTML);
-			const newPrice = currentPrice + 40;
-			totalPrice.innerHTML = newPrice;
-			}
+	if (target.classList.contains('tickets__form-plus')) {
+		// BASIC PLUS ON PERMANENT CHECKBOX
+		if ( currentInputValue < 20 && permanentType.checked ) {
+			inputBasic.value = currentInputValue + 1;
+		currentPrice = Number(totalPrice.innerHTML);
+		newPrice = currentPrice + 20;
+		totalPrice.innerHTML = newPrice;
 		}
-
-		if (target.classList.contains('tickets__form-minus')) {
-
-			const currentPrice = Number(totalPrice.innerHTML);
-
-			if( currentPrice <= 0 ) {
-				return;
-			}
-			// BASIC MINUS ON PERMANENT CHECKBOX
-			if ( currentInputValue > 0  && permanentType.checked) {
-				inputBasic.value = currentInputValue - 1;
-				const newPrice = currentPrice - 20;
-				totalPrice.innerHTML = newPrice;
-			}
-			// BASIC MINUS ON TEMPORARY CHECKBOX
-			if ( currentInputValue > 0  && temporaryType.checked) {
-				inputBasic.value = currentInputValue - 1;
-				const newPrice = currentPrice - 25;
-				totalPrice.innerHTML = newPrice;
-			}
-			// BASIC MINUS ON COMBINED CHECKBOX
-			if ( currentInputValue > 0  && combinedType.checked) {
-				inputBasic.value = currentInputValue - 1;
-				const newPrice = currentPrice - 40;
-				totalPrice.innerHTML = newPrice;
-			}
+		// BASIC PLUS ON TEMPORARY CHECKBOX
+		if ( currentInputValue < 20 && temporaryType.checked ) {
+			inputBasic.value = currentInputValue + 1;
+		currentPrice = Number(totalPrice.innerHTML);
+		newPrice = currentPrice + 25;
+		totalPrice.innerHTML = newPrice;
+		}
+		// BASIC PLUS ON COMBINED CHECKBOX
+		if ( currentInputValue < 20 && combinedType.checked ) {
+			inputBasic.value = currentInputValue + 1;
+		currentPrice = Number(totalPrice.innerHTML);
+		newPrice = currentPrice + 40;
+		totalPrice.innerHTML = newPrice;
 		}
 	}
 
+	if (target.classList.contains('tickets__form-minus')) {
 
+		currentPrice = Number(totalPrice.innerHTML);
 
-
-
-
-	function changeSeniorValue(event) {
-		let target = event.target;
-		const totalPrice = document.querySelector('.total-prices');
-		const currentInputValue = Number(inputSenior.value);
-
-		if (target.classList.contains('tickets__form-plus')) {
-
-			if ( currentInputValue < 20 ) {
-				inputSenior.value = currentInputValue + 1;
-				const currentPrice = + totalPrice.innerHTML;
-				const newPrice = currentPrice + 10;
-				totalPrice.innerHTML = newPrice;
-			}
-
+		if( currentPrice <= 0 ) {
+			return;
 		}
+		// BASIC MINUS ON PERMANENT CHECKBOX
+		if ( currentInputValue > 0  && permanentType.checked) {
+			inputBasic.value = currentInputValue - 1;
+			newPrice = currentPrice - 20;
+			totalPrice.innerHTML = newPrice;
+		}
+		// BASIC MINUS ON TEMPORARY CHECKBOX
+		if ( currentInputValue > 0  && temporaryType.checked) {
+			inputBasic.value = currentInputValue - 1;
+			newPrice = currentPrice - 25;
+			totalPrice.innerHTML = newPrice;
+		}
+		// BASIC MINUS ON COMBINED CHECKBOX
+		if ( currentInputValue > 0  && combinedType.checked) {
+			inputBasic.value = currentInputValue - 1;
+			newPrice = currentPrice - 40;
+			totalPrice.innerHTML = newPrice;
+		}
+	}
+}
 
-		if (target.classList.contains('tickets__form-minus')) {
 
+
+
+
+
+function changeSeniorValue(event) {
+	let target = event.target;
+	const totalPrice = document.querySelector('.total-prices');
+	const currentInputValue = Number(inputSenior.value);
+
+	if (target.classList.contains('tickets__form-plus')) {
+
+		if ( currentInputValue < 20 ) {
+			inputSenior.value = currentInputValue + 1;
 			const currentPrice = + totalPrice.innerHTML;
-
-			if( currentPrice <= 0 ) {
-				return;
-			}
-
-			if ( currentInputValue > 0 ) {
-				inputSenior.value = currentInputValue - 1;
-
-				const newPrice = currentPrice - 10;
-				totalPrice.innerHTML = newPrice;
-			}
+			const newPrice = currentPrice + 10;
+			totalPrice.innerHTML = newPrice;
 		}
+
 	}
 
-	radioBtns.forEach(el => {
-		el.addEventListener('change', (e) => {
+	if (target.classList.contains('tickets__form-minus')) {
 
-			if (e.target.id == 'permanent') {
-	
-			}
-			if (e.target.id == 'temporary') {
+		const currentPrice = + totalPrice.innerHTML;
 
-			}
-			if (e.target.id == 'combined') {
+		if( currentPrice <= 0 ) {
+			return;
+		}
 
-			}
-		})
-	})
+		if ( currentInputValue > 0 ) {
+			inputSenior.value = currentInputValue - 1;
+
+			const newPrice = currentPrice - 10;
+			totalPrice.innerHTML = newPrice;
+		}
+	}
+}
+
+radioBtns.forEach(el => {
+	el.addEventListener('change', (e) => {
+
+		if (e.target.id === 'permanent') {
+			 totalPrice.innerHTML = `${(inputBasic.value * 20) + (inputSenior.value * 10)}`;
+		}
+		if (e.target.id === 'temporary') {
+			totalPrice.innerHTML = `${(inputBasic.value * 25) + (inputSenior.value * 12.5)}`;
+		}
+		if (e.target.id === 'combined') {
+			totalPrice.innerHTML = `${(inputBasic.value * 40) + (inputSenior.value * 20)}`;
+		}
+	});
+});
+
+

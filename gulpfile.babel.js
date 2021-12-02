@@ -40,16 +40,16 @@
 --------------------------------------------------------------------------------------------------------------------------------------------*/
 
 config.setEnv();
-config.projectName('__NameProject__')
+config.projectName('__NameProject__');
 config.addWoff(false);
 config.addWebp(false);
 config.concatJs([
 	 'src/js/components/burgerMenu.js',
 	 'src/js/components/propgressBar.js',
+	 'src/js/components/explore.js',
 	 'src/js/library/swiper.js',
 	 'src/js/main.js',
-
-])
+]);
 
 // Главные таски сборки
 import gulp from 'gulp';
@@ -67,7 +67,7 @@ import video from './gulp/tasks/video';
 
 // Таски для различных задач
 import clean from './gulp/tasks/clean';
-import purgecss from './gulp/tasks/purgecss'
+import purgecss from './gulp/tasks/purgecss';
 import fontsFile from './gulp/tasks/fontsFile';
 import deploy from './gulp/tasks/deploy';
 
@@ -92,7 +92,7 @@ export const watch = gulp.series(
 );
 
 exports.clean = clean;
-exports.fontsFile = fontsFile
+exports.fontsFile = fontsFile;
 exports.purgecss = purgecss;
-exports.deploy = deploy
+exports.deploy = deploy;
 exports.default = watch;
